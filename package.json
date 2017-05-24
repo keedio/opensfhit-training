@@ -1,0 +1,12 @@
+{
+  "name": "openshift-training",
+  "private": true,
+  "version": "0.1.0",
+  "main": "server.js",
+  "dependencies": {
+    "cassandra-driver": "^3.2.0",
+    "express": "^4.14.1",
+    "http-server": "^0.9.0",
+    "q": "^1.5.0"
+  }
+}
