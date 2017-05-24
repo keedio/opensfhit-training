@@ -64,7 +64,7 @@ objects:
           - name: CASSANDRA_SERVICE
             value: cassandra-cql
           ports:
-          - containerPort: 3000
+          - containerPort: 8080
         volumes:
         - name: app-folder
           
@@ -85,6 +85,9 @@ objects:
     name: ${OBJECT_NAME_PREFIX}
   spec:
     ports:
-    - port: 3000
+    - name: 8080-port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
     selector:
       deploymentconfig: ${OBJECT_NAME_PREFIX}   
