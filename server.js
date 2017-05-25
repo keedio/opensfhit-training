@@ -2,28 +2,24 @@ var express = require('express');
 var  http = require('http');
 var service = require('./cassandra.service');
 
-/*
-var server = http.createServer(function (request, response) {
 
-    
+var server = http.createServer(function (request, response) {    
     service.getElements()
     .then(function (data) {
-        if (data)
-            res.end(data);
+        if (data)	
+        	response.end(JSON.stringify(data))               
         else
-            res.sendStatus(404);
+        	response.sendStatus(404);
 
     })
     .catch(function (err) {
-        res.status(400).send(err);
+    	response.status(400).send(err);
     });
-});*/
-var server = http.createServer(function (request, response) {
-	  response.writeHead(200, {"Content-Type": "text/plain"});
-	  text = "Hello Keedio!!" 
-	  response.end(text);
+    request.on('end',  function(data) {
+    	console.log('----request end----');
+      });
+});
 
-	});
 server.listen(8080);
 
 console.log("Server running!");

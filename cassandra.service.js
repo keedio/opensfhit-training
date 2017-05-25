@@ -1,6 +1,6 @@
 var cassandra=require("cassandra-driver");
 var Q = require('q');
-var client =new cassandra.Client({'contactPoints':[process.env.CASSANDRA_SERVICE],keyspace:'openshift'});
+var client =new cassandra.Client({'contactPoints':['127.0.0.1'],keyspace:'openshift'});
 //process.env.CASSANDRA_SERVICE
 
 var service = {};
